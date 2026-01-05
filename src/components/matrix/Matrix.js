@@ -1,10 +1,12 @@
 import { useEffect, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
 import './Matrix.css'
 import MatrixD3 from './Matrix-d3'
 
-function Matrix({matrixData}){
+function Matrix(){
     console.log("Matrix component function call")
-
+    const matrixData = useSelector(state=>state.matrix);
+    
     // do not write any behaviour here except hook function declarations or function/constant initialization
     const divContainerRef = useRef(null);
 
@@ -12,7 +14,7 @@ function Matrix({matrixData}){
 
     const getCharSize = function(){
         // getting size from parent item
-        let width; 
+        let width;
         let height; 
         if(divContainerRef.current!==undefined){
             width=divContainerRef.current.offsetWidth;

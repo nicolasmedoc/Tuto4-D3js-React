@@ -1,7 +1,12 @@
 import "./ControlBar.css"
+import { useSelector, useDispatch } from "react-redux";
+import { updateNbRowsAndCols } from "../../redux/ConfigSlice";
+import { generateByGenConfig } from "../../redux/MatrixSlice";
 
-
-function ControlBar({genConfigData, onSubmitGenAction}){
+function ControlBar({onSubmitGenAction}){
+    // config in state.config being the name used for the reducer in store.js
+    const genConfigData = useSelector(state=>state.config);
+    const dispatch = useDispatch();
 
     const handleOnSubmit = function(event){
         // Prevent the browser from reloading the page
@@ -11,7 +16,13 @@ function ControlBar({genConfigData, onSubmitGenAction}){
         const form = event.target;
         const formData = new FormData(form);
         const formJSON = Object.fromEntries(formData.entries());
-        onSubmitGenAction(formJSON)
+        // onSubmitGenAction(formJSON)
+        const genConfig = {
+            nbRows: parseInt(formJSON.nbRows),
+            nbCols: parseInt(formJSON.nbCols)
+        } 
+        dispatch(updateNbRowsAndCols(genConfig));
+        dispatch(generateByGenConfig(genConfig))
     }
 
     return (
