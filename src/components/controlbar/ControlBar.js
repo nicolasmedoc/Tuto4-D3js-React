@@ -11,7 +11,11 @@ function ControlBar({genConfigData, onSubmitGenAction}){
         const form = event.target;
         const formData = new FormData(form);
         const formJSON = Object.fromEntries(formData.entries());
-        onSubmitGenAction(formJSON)
+        const genConfig = {
+            nbRows: parseInt(formJSON.nbRows),
+            nbCols: parseInt(formJSON.nbCols)
+        }
+        onSubmitGenAction(genConfig)
     }
 
     return (
