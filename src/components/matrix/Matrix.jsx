@@ -6,7 +6,7 @@ function Matrix({matrixData}){
     // do not write any behaviour here except hook function declarations or function/constant initialization
 
     return(
-        <div className="matrixDivContainer col2">
+        <div className="matrixDivContainer col">
         </div>
     )
 }
