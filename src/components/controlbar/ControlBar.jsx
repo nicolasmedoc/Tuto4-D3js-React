@@ -22,7 +22,7 @@ function ControlBar({onSubmitGenAction}){
             nbCols: parseInt(formJSON.nbCols)
         } 
         dispatch(updateNbRowsAndCols(genConfig));
-        dispatch(generateByGenConfig(genConfig))
+        dispatch(generateByGenConfig(genConfig));
     }
 
     return (

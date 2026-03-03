@@ -12,7 +12,7 @@ function Matrix(){
 
     const matrixD3Ref = useRef(null);
 
-    const getCharSize = function(){
+    const getChartSize = function(){
         // getting size from parent item
         let width;
         let height; 
@@ -27,7 +27,7 @@ function Matrix(){
         // do something when the component did mount
         console.log("Matrix useEffect with dependency [], called each time the component did mount...");
         const matrixD3Vis = new MatrixD3(divContainerRef.current);
-        matrixD3Vis.create({size:getCharSize()});
+        matrixD3Vis.create({size:getChartSize()});
         matrixD3Ref.current = matrixD3Vis;
         return ()=>{
             // do something when the component did unmout (removed for the screen)
@@ -46,7 +46,7 @@ function Matrix(){
 
 
     return(
-        <div ref={divContainerRef} className="matrixDivContainer col2">
+        <div ref={divContainerRef} className="matrixDivContainer col">
         </div>
     )
 }
