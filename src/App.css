@@ -16,8 +16,8 @@
     gap: 10px;
 }
 .col{
-    flex-grow: 1;
-    flex-basis: 0;
+    flex-grow: 1; /* all .col elements have the same importance */
+    flex-basis: 0; /* do not use auto to avoid size depends on content*/
 }
 /*.row:after {*/
 /*    content: "";*/
